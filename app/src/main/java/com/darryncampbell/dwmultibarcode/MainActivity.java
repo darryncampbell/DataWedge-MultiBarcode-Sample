@@ -65,33 +65,47 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     private void populateUI(String instantReportingEnabled, String multiBarcodeCount) {
         CheckBox chkReportInstantly = findViewById(R.id.chkReportInstantly);
         EditText txtMultiBarcodeCount = findViewById(R.id.txtBarcodeCount);
-        TextView lblHeading = findViewById(R.id.lblHeading);
-        Button btnMinus = findViewById(R.id.btnDec);
-        Button btnPlus = findViewById(R.id.btnInc);
-        Button btnClear = findViewById(R.id.btnClear);
         chkReportInstantly.setEnabled(true);
         if (instantReportingEnabled.equalsIgnoreCase("true"))
         {
             chkReportInstantly.setChecked(true);
             m_bReportInstantly = true;
-            lblHeading.setText(getResources().getString(R.string.maxBarcodes));
         }
         else
         {
             chkReportInstantly.setChecked(false);
             m_bReportInstantly = false;
-            lblHeading.setText(getResources().getString(R.string.numBarcodes));
         }
+        enableMaxBarcodeUI(!m_bReportInstantly);
         txtMultiBarcodeCount.setText(multiBarcodeCount);
         m_iBarcodeCount = Integer.parseInt(multiBarcodeCount);
-        btnMinus.setEnabled(true);
-        btnPlus.setEnabled(true);
-        btnClear.setEnabled(true);
-
         chkReportInstantly.setOnCheckedChangeListener(this);
-        btnMinus.setOnClickListener(this);
-        btnPlus.setOnClickListener(this);
+        Button btnClear = findViewById(R.id.btnClear);
+        btnClear.setEnabled(true);
         btnClear.setOnClickListener(this);
+    }
+
+    private void enableMaxBarcodeUI(Boolean bEnable) {
+        TextView lblHeading = findViewById(R.id.lblHeading);
+        Button btnMinus = findViewById(R.id.btnDec);
+        Button btnPlus = findViewById(R.id.btnInc);
+        EditText txtMultiBarcodeCount = findViewById(R.id.txtBarcodeCount);
+        btnMinus.setEnabled(bEnable);
+        btnPlus.setEnabled(bEnable);
+        txtMultiBarcodeCount.setEnabled(bEnable);
+        if (bEnable)
+        {
+            lblHeading.setText(getResources().getString(R.string.numBarcodes));
+            btnMinus.setOnClickListener(this);
+            btnPlus.setOnClickListener(this);
+        }
+        else
+        {
+            lblHeading.setText(getResources().getString(R.string.maxBarcodes));
+            btnMinus.setOnClickListener(null);
+            btnPlus.setOnClickListener(null);
+        }
+
     }
 
     private void displayScanResult(Intent intent)
@@ -206,11 +220,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     public void onCheckedChanged(CompoundButton compoundButton, boolean bChecked) {
         //  InstantReporting check has changed
         m_bReportInstantly = bChecked;
-        TextView lblHeading = findViewById(R.id.lblHeading);
-        if (bChecked)
-            lblHeading.setText(getResources().getString(R.string.maxBarcodes));
-        else
-            lblHeading.setText(getResources().getString(R.string.numBarcodes));
+        enableMaxBarcodeUI(!m_bReportInstantly);
         DWUtilities.setConfig(getApplicationContext(), m_iBarcodeCount, bChecked);
     }
 
