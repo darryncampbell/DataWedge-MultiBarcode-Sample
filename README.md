@@ -85,8 +85,8 @@ The following profile properties are then modified as you interact with the appl
 
 If for whatever reason DataWedge does not get configured correctly, please refer to the screenshots below:
 
-![DataWedge 1](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/dw_1.jpg)
-![DataWedge 2](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/dw_2.jpg)
-![DataWedge 3](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/dw_3.jpg)
+![DataWedge 1](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/dw1.jpg)
+![DataWedge 2](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/dw2.jpg)
+![DataWedge 3](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/dw3.jpg)
 
 
