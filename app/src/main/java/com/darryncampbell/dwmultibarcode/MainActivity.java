@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                     Bundle versionInformation = intent.getBundleExtra(DWUtilities.EXTRA_RESULT_GET_VERSION_INFO);
                     String DWVersion = versionInformation.getString("DATAWEDGE");
                     Log.i(LOG_TAG, "DataWedge Version info: " + DWVersion);
-                    if (DWVersion.compareTo("8.0.0") >= 1)
+                    if (DWVersion.compareTo("7.3.0") >= 1)
                     {
                         //  Register for profile change - want to update the UI based on the profile
                         DWUtilities.createProfile(getApplicationContext());

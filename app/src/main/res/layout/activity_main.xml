@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="This application requires DataWedge 8.0 or higher"
+        android:text="This application requires DataWedge 7.3 or higher"
         app:layout_constraintEnd_toStartOf="@+id/chkReportInstantly"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
