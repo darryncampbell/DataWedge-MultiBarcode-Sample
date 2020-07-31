@@ -13,7 +13,7 @@ Over the past few years there have been a number of ways to scan multiple barcod
 - Very early: [AimType Continuous Read](https://techdocs.zebra.com/datawedge/5-0/guide/decoders/#readerparams) allowing multiple barcodes to be scanned with a single trigger pull. 
 - v5.0: [SimulScan Input plugin](https://techdocs.zebra.com/datawedge/6-3/guide/input/simulscan/) introduced that supported capturing multiple barcodes.
 - v6.7: [Multibarcode support first introduced](https://techdocs.zebra.com/datawedge/6-7/guide/input/barcode/#multibarcodedecoding) as a property of the barcode plugin, _but you needed to specify the exact number of barcodes being scanned_.
-- v7.3: A new [Instant Reporting](https://techdocs.zebra.com/datawedge/7-3/guide/input/barcode/#multibarcodedecoding) parameter was added to send each unique barcode _immediately_ as it is scanned.  It was not longer necessary to specify the exact number of barcodes being scanned. 
+- v7.3: A new [Instant Reporting](https://techdocs.zebra.com/datawedge/7-3/guide/input/barcode/#multibarcodedecoding) parameter was added to send each unique barcode _immediately_ as it is scanned.  It was no longer necessary to specify the exact number of barcodes being scanned. 
 - v7.6: A new [Report Decoded Barcodes](https://techdocs.zebra.com/datawedge/7-6/guide/input/barcode/#multibarcodeparams) parameter was added so you did not have to specify the exact number of barcodes being scanned but you only receive the scanned barcodes at the end of the scan session (i.e. not _immediately_)
 - v8.0: [NextGen SimulScan](https://techdocs.zebra.com/datawedge/8-0/guide/input/barcode/#nextgensimulscanconfiguration) was introduced to replace the SimulScan Input plugin, which was deprecated.  NextGen SimulScan is an amalgamation of the multibarcode features introduced in DataWedge v6.7, v7.3 and v7.6.
 
@@ -31,7 +31,7 @@ Or:
 
 - Disable Instant Reporting and specify the number of barcodes being scanned prior to scanning a sheet of barcodes.
 
-A [Sample set of barcodes](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/barcodes.jpg) is included in this repository if needed.  I recommend you print it out rather than trying to scan it from a computer screen for best performance.
+A [sample set of barcodes](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/barcodes.jpg) is included in this repository if needed.  I recommend you print it out rather than trying to scan it from a computer screen for best performance.
 
 You can see the sample app in action in the below video, scanning the [sample barcodes](https://github.com/darryncampbell/DataWedge-MultiBarcode-Sample/raw/master/screenshots/barcodes.jpg).
 
@@ -53,7 +53,7 @@ public static void setConfig(Context context, int numberOfBarcodesPerScan, Boole
     barcodeConfig.putString("PLUGIN_NAME", "BARCODE");
     barcodeConfig.putString("RESET_CONFIG", "true");
     Bundle barcodeProps = new Bundle();
-    //  Note: configure_all_scanners does not work here, I guess because not all DW scanners (Camera?) support multi barcode
+    //  Note: configure_all_scanners does not work here.
     barcodeProps.putString("scanner_selection_by_identifier", "INTERNAL_IMAGER");
     barcodeProps.putString("scanning_mode", "3");
     if (bReportInstantly)
