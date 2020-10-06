@@ -1,3 +1,6 @@
+*Please be aware that this application / sample is provided as-is for demonstration purposes without any guarantee of support*
+=========================================================
+
 # DataWedge MultiBarcode Sample
 
 This application demonstrates how to capture multiple barcodes with a single trigger pull on a Zebra Android mobile computer using the "Basic Multibarcode" feature of DataWedge.
